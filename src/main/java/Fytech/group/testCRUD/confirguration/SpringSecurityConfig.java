@@ -1,4 +1,4 @@
-package Fytech.group.testCRUD.configuration;
+package Fytech.group.testCRUD.confirguration;
 
 
 import org.springframework.context.annotation.Bean;
@@ -29,8 +29,14 @@ public class SpringSecurityConfig {
 
     @Bean
     public UserDetailsService user(){
-        UserDetails user = User.builder().username("user").password(passwordEncoder().encode("user")).roles("USER").build();
-        UserDetails admin = User.builder().username("admin").password(passwordEncoder().encode("admin")).roles("USER","ADMIN").build();
+        UserDetails user = User.builder()
+                .username("user")
+                .password(passwordEncoder().encode("user"))
+                .roles("USER").build();
+        UserDetails admin = User.builder()
+                .username("admin")
+                .password(passwordEncoder().encode("admin"))
+                .roles("USER","ADMIN").build();
 
         return new InMemoryUserDetailsManager(user,admin);
     }
